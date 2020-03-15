@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon build/serverBuild.js",
+    "build": "webpack --config webpack.clientConfig.js",
     "build:client": "webpack --config webpack.clientConfig.js",
     "build:server": "webpack --config webpack.serverConfig.js",
     "test": "echo \"Error: no test specified\" && exit 1"

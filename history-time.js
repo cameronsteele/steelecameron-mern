@@ -10,7 +10,7 @@ class HistoryTime {
 		window.addEventListener('popstate', this.popState, false);
 		history.replaceState(this.state, this.state.title, this.state.url);
 
-		this.activePathExclusiveProps = [];
+		this.activePathBinds = [];
 	}
 
 	// bindBackElement(element) {
@@ -48,41 +48,21 @@ class HistoryTime {
 	}
 
 	navigateTo(path) {
-		///TODO remove console.logs or create debug toggle
-		console.log('navigating to ' + path);
+		console.log('navigating to ' + path); ///TODO remove or create debug toggle
 
-		while(this.activePathExclusiveProps.length) {
-			var exclusie = this.activePathExclusiveProps.pop();
-			exclusie.component.setState({ [exclusie.prop]: exclusie.oldValue });
+		while(this.activePathBinds.length) { ///REVISIT do we always want to clear the whole array on every navigateTo() call?
+			var activePathBind = this.activePathBinds.pop();
+
+			activePathBind.component.setState({
+				[activePathBind.property]: activePathBind.previousValue
+			});
 		}
 
-		// change values bound to this path
 		if(this.pathBinds.hasOwnProperty(path)) {
-			for (var bindIndex = 0; bindIndex < this.pathBinds[path].length; bindIndex++) {
+			for(var bindIndex = 0; bindIndex < this.pathBinds[path].length; bindIndex++) {
 				var pathBind = this.pathBinds[path][bindIndex];
-				var pathComponent = pathBind[0];
-				var pathProp = pathBind[1];
-				var pathValue = pathBind[2];
-				var pathExclusive = pathBind[3];
 
-				// for (var exclusieIndex = 0; exclusieIndex < this.activePathExclusiveProps.length; exclusieIndex++) {
-				// 	var exclusie = this.activePathExclusiveProps[exclusieIndex];
-				// 	if(exclusie.path == path) {}
-				// 	exclusie.component.setState({ exclusie.prop: exclusie.oldValue });
-				// }
-
-				if(pathExclusive) {
-					////TODO could we just store a reference to the prop like: pathComponent.props[pathProp]
-					this.activePathExclusiveProps.push({
-						component: pathComponent,
-						prop: pathProp,
-						oldValue: pathComponent.props[pathProp]
-					});
-				}
-
-				pathComponent.setState({ [pathProp]: pathValue });
-
-				// activePathBinds.push(pathBind);
+				this.activatePathBind(pathBind);
 			}
 		}
 
@@ -94,14 +74,37 @@ class HistoryTime {
 		}
 	}
 
-	bindPathToProp(path, object, property, value, pathExclusive = true) { /// rexamine final architecture. it is currently only local to components that HistoryTime has interacted with
+	activatePathBind(pathBind) {
+		if(!pathBind.oneWay) {
+			this.activePathBinds.push({
+				component: pathBind.component,
+				property: pathBind.property,
+				previousValue: pathBind.component.props[pathBind.property]
+			});
+		}
+
+		pathBind.component.setState({ [pathBind.property]: pathBind.value });
+	}
+
+	bindPathToProp(path, component, property, value, oneWay = false) {
 		// path = this.boilPath(path);
 
 		if(!this.pathBinds.hasOwnProperty(path)) {
 			this.pathBinds[path] = [];
 		}
 
-		this.pathBinds[path].push([object, property, value, pathExclusive]);
+		var pathBind = {
+			component,
+			property,
+			value,
+			oneWay
+		};
+
+		if(this.state.url == path) {
+			this.activatePathBind(pathBind);
+		}
+
+		this.pathBinds[path].push(pathBind);
 	}
 
 	boilPath(path) {
