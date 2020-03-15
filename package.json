@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon build/serverBuild.js",
-    "build": "webpack --config webpack.clientConfig.js",
-    "build:client": "webpack --config webpack.clientConfig.js",
-    "build:server": "webpack --config webpack.serverConfig.js",
+    "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Cameron Steele (https://steelecameron.com)",
@@ -25,7 +23,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
     "nodemon": "^1.18.4",
-    "webpack": "^4.21.0",
+    "webpack": "^4.42.0",
     "webpack-cli": "^3.1.2"
   }
 }
