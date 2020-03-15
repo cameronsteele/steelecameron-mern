@@ -34,11 +34,14 @@ class Card extends Component {
 		// this.setState({ active: true });
 	}
 
+
+
 	render() {
-		var depthLink = "";
-		var depth = "";
+		var content = "";
 
 		if(this.props.nature == 'project') {
+			var depthLink = "";
+			var depth = "";
 			depthLink = (
 				<a href={this.portfolioPath}>
 					<img src=
@@ -71,15 +74,8 @@ class Card extends Component {
 				</header>
 			);
 
-            // this.props.children[0].children.unshift(depthHeader);
-			// console.log(this.props.children[0]);
-
 			depth = (
 				<div className="depth">
-					{/*{depthHeader}*/}
-
-					{/*{depthHeader}*/}
-
 					{React.Children.map(this.props.children, (child, i) => {
 						if(!i) {
 							return (
@@ -96,23 +92,27 @@ class Card extends Component {
 						} else {
 							return child;
 						}
-
 					})}
-
-					{/*{this.props.children}*/}
 				</div>
 			);
-		}
 
+			content = [depthLink, depth];
+			// content = (
+			// 	<div>
+			// 		{depthLink}
+			// 		{depth}
+			// 	</div>
+			// )
+		} else {
+			content = this.props.children;
+		}
 
 		return(
 			<div
 				className={"card " + this.props.nature + (this.state.active ? " active" : "")}
 				onClick={this.openDepth}
 			>
-				{depthLink}
-
-				{depth}
+				{content}
 			</div>
 		);
 	}
