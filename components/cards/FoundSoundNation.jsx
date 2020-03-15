@@ -6,13 +6,13 @@ return(
 	<Card nature="project" title="Found Sound Nation">
 		<section>
 			<p>
-				A highly-regarded musical non-profit and collective of musicians. They develop music production classes for underprivileged youth, create art installations, and host international arts exchange programs; often in conjunction with the U.S. Dept. of State.
+				Renowned non-profit Found Sound Nation works all over the world to connect people through music. Their programs have ranged from music production classes for underprivileged youth to hosting international arts exchange programs in collaboration with the U.S. Dept. of State.
 			</p>
 
 			<img src="/images/projects/foundsoundnation/logo.png" />
 
 			<p>
-				Over the years I've been contracted to build numerous websites to showcase their organization and many projects, festivals, and residencies. For their primary website, we tried to design something that feels large and alive.
+				I was contracted to build numerous websites showcasing their organization and its many projects, festivals, and residencies. For their central website (as displayed in the images), we tried to design something that feels large and alive.
 			</p>
 
 			<img src="/images/projects/foundsoundnation/grid.png" />

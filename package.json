@@ -12,11 +12,11 @@
   "author": "Cameron Steele (https://steelecameron.com)",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-redux": "^5.0.7",
-    "redux": "^4.0.1"
+    "express": "^4.17",
+    "react": "^16.13",
+    "react-dom": "^16.13",
+    "react-redux": "^7.2",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

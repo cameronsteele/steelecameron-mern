@@ -12,7 +12,6 @@ class Card extends Component {
 
 		this.state = { active: false };
 
-
 		this.openDepth = this.openDepth.bind(this);
 
 		if(props.nature == 'project') {
@@ -33,18 +32,6 @@ class Card extends Component {
 		HistoryTime.state.updating = true; ///
 		HistoryTime.navigateTo(this.portfolioPath);
 		// this.setState({ active: true });
-
-		// if(project) $(project).removeClass('active');
-		// project = document.getElementById(name);
-		// $(project).addClass('active');
-		// document.body.className = 'depth';
-
-		// if(state.updating) {
-		// 	document.title = name + ' : cameron steele portfolio';
-		// 	state.title = name + ' : cameron steele portfolio';
-		// 	state.url = '/'+name;
-		// 	history.pushState(state, state.title, state.url);
-		// }
 	}
 
 	render() {
@@ -53,7 +40,7 @@ class Card extends Component {
 
 		if(this.props.nature == 'project') {
 			depthLink = (
-				<a href={this.props.projectLink}>
+				<a href={this.portfolioPath}>
 					<img src=
 						{"/images/projects/"
 						+ this.props.title.toLowerCase().replace(/\s/g, '') + "/"

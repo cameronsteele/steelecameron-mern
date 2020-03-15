@@ -10,7 +10,7 @@ class HistoryTime {
 		window.addEventListener('popstate', this.popState, false);
 		history.replaceState(this.state, this.state.title, this.state.url);
 
-		this.activeExclusies = [];
+		this.activePathExclusiveProps = [];
 	}
 
 	// bindBackElement(element) {
@@ -33,54 +33,54 @@ class HistoryTime {
 		var pageTitle = this.state.url.split('/').pop();
 		gtag('config', 'GA_TRACKING_ID', {'page_path': this.state.url});
 
-		switch(pageTitle) {
-			case "":
-				$(project).removeClass('active');
-				project = false;
-				document.body.removeAttribute('class');
-				break;
+		// switch(pageTitle) {
+		// 	case "":
+		// 		// project.classList.remove('active');
+		// 		// project = false;
+		// 		// document.body.removeAttribute('class');
+		// 		break;
 
-			default:
+		// 	default:
 				this.state.updating = false;
-				this.navigateTo(pageTitle);
-				break;
-		}
+				this.navigateTo('/' + pageTitle);
+		// 		break;
+		// }
 	}
 
 	navigateTo(path) {
+		///TODO remove console.logs or create debug toggle
 		console.log('navigating to ' + path);
-		console.log(this.pathBinds);
 
+		while(this.activePathExclusiveProps.length) {
+			var exclusie = this.activePathExclusiveProps.pop();
+			exclusie.component.setState({ [exclusie.prop]: exclusie.oldValue });
+		}
+
+		// change values bound to this path
 		if(this.pathBinds.hasOwnProperty(path)) {
 			for (var bindIndex = 0; bindIndex < this.pathBinds[path].length; bindIndex++) {
 				var pathBind = this.pathBinds[path][bindIndex];
 				var pathComponent = pathBind[0];
 				var pathProp = pathBind[1];
 				var pathValue = pathBind[2];
-				var exclusive = pathBind[3];
+				var pathExclusive = pathBind[3];
 
-				// for (var exclusieIndex = 0; exclusieIndex < this.activeExclusies.length; exclusieIndex++) {
-				// 	var exclusie = this.activeExclusies[exclusieIndex];
+				// for (var exclusieIndex = 0; exclusieIndex < this.activePathExclusiveProps.length; exclusieIndex++) {
+				// 	var exclusie = this.activePathExclusiveProps[exclusieIndex];
 				// 	if(exclusie.path == path) {}
 				// 	exclusie.component.setState({ exclusie.prop: exclusie.oldValue });
 				// }
 
-				while(this.activeExclusies.length) {
-					var exclusie = activeExclusie.pop();
-					exclusie.component.setState({ [exclusie.prop]: exclusie.oldValue });
-
-				}
-
-				if(exclusive) {
-					//// could we just store a reference to the prop like: pathComponent.props[pathProp]
-					this.activeExclusies.push({
+				if(pathExclusive) {
+					////TODO could we just store a reference to the prop like: pathComponent.props[pathProp]
+					this.activePathExclusiveProps.push({
 						component: pathComponent,
 						prop: pathProp,
 						oldValue: pathComponent.props[pathProp]
 					});
 				}
 
-				pathComponent.setState({ pathProp: pathValue });
+				pathComponent.setState({ [pathProp]: pathValue });
 
 				// activePathBinds.push(pathBind);
 			}
@@ -89,22 +89,24 @@ class HistoryTime {
 		if(this.state.updating) {
 			document.title = path + ' : cameron steele portfolio';
 			this.state.title = path + ' : cameron steele portfolio';
-			this.state.url = '/' + path.toLowerCase();
+			this.state.url = path.toLowerCase();
 			history.pushState(this.state, this.state.title, this.state.url);
 		}
 	}
 
-	bindPathToProp(path, object, property, value, exclusive = true) { /// `exclusive` as final architecture? it is currently only local to components that HistoryTime has interacted with
-		path = this.boilPath(path);
+	bindPathToProp(path, object, property, value, pathExclusive = true) { /// rexamine final architecture. it is currently only local to components that HistoryTime has interacted with
+		// path = this.boilPath(path);
 
 		if(!this.pathBinds.hasOwnProperty(path)) {
 			this.pathBinds[path] = [];
 		}
 
-		this.pathBinds[path].push([object, property, value, exclusive]);
+		this.pathBinds[path].push([object, property, value, pathExclusive]);
 	}
 
 	boilPath(path) {
+		///TODO doesn't do anything at the moment. remove?
+
 		// var urlInstance = new URL(path);
 		// return urlInstance.hostname + urlInstance.pathname;
 

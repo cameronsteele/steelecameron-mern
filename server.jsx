@@ -24,6 +24,8 @@ function handleRender(req, res) {
 	);
 
 	const preloadedState = store.getState();
+	console.log(preloadedState);
+	preloadedState.page = 'foundsoundnation';
 
 	res.send(renderFullPage(html, preloadedState));
 }
@@ -43,7 +45,6 @@ function renderFullPage(html, preloadedState) {
 
 			<meta charset="utf-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-
 
 			<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/brands.js" integrity="sha384-qJKAzpOXfvmSjzbmsEtlYziSrpVjh5ROPNqb8UZ60myWy7rjTObnarseSKotmJIx" crossorigin="anonymous"></script>
 			<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/fontawesome.js" integrity="sha384-2IUdwouOFWauLdwTuAyHeMMRFfeyy4vqYNjodih+28v2ReC+8j+sLF9cK339k5hY" crossorigin="anonymous"></script>
