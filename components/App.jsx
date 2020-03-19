@@ -1,5 +1,6 @@
 import React from 'react';
-import Card from './Card.jsx';
+import Card from './VisibleCard.jsx';
+// import Card from './Card.jsx';
 // import '../primary.scss';
 
 import {

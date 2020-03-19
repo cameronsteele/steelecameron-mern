@@ -20,6 +20,5 @@ hydrate(
 	<Provider store={store}>
 		<App />
 	</Provider>,
-
 	document.getElementById('root')
 );

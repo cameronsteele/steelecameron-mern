@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { changePage } from '../actions';
 import HistoryTime from '../history-time';
 import BackButton from './BackButton.jsx';
+import { connect } from 'react-redux';
 
 const CLIENT = typeof window !== 'undefined';
 const SERVER = !CLIENT;
@@ -21,6 +22,16 @@ class Card extends Component {
 			if(CLIENT) { ///
 				HistoryTime.bindPathToProp(this.portfolioPath, this, 'active', true);
 			}
+		}
+	}
+
+	static getDerivedStateFromProps(newProps, previousState) {
+		if(newProps.active == previousState.active) { ///OPTIMIZATION does this help or hurt?
+			return null;
+		}
+
+		return {
+			active: newProps.active
 		}
 	}
 
@@ -118,4 +129,33 @@ class Card extends Component {
 	}
 }
 
-export default Card;
+
+function mapStateToProps(state, ownProps) {
+  var active = true;
+
+
+  if(ownProps.nature == 'project') {
+    active = state.page == ownProps.title.replace(/\s/g, '').toLowerCase();
+  }
+
+  return {
+    active
+  }
+}
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     // onTodoClick: id => {
+//     //   dispatch(toggleTodo(id))
+//     // }
+//   }
+// }
+
+const VisibleCard = connect(
+  mapStateToProps,
+  // mapDispatchToProps
+)(Card);
+
+
+// export default Card;
+export default VisibleCard;

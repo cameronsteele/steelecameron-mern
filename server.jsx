@@ -15,7 +15,12 @@ app.use(Express.static('public'));
 app.use(handleRender);
 
 function handleRender(req, res) {
-	const store = createStore(appReducer);
+	// var pathSplit = req.path.split('/');
+
+	var page = req.path.split('/')[1];
+	const preloadedState = { page };
+
+	const store = createStore(appReducer, preloadedState);
 
 	const html = renderToString(
 		<Provider store={store}>
@@ -23,11 +28,12 @@ function handleRender(req, res) {
 		</Provider>
 	);
 
-	const preloadedState = store.getState();
-	console.log(preloadedState);
-	preloadedState.page = 'foundsoundnation';
+	// const preloadedState = store.getState();
+	// preloadedState.page = 'foundsoundnation';
 
-	res.send(renderFullPage(html, preloadedState));
+	const finalState = store.getState();
+
+	res.send(renderFullPage(html, finalState));
 }
 
 function renderFullPage(html, preloadedState) {
