@@ -12,6 +12,7 @@ class Card extends Component {
 
 		this.state = { active: false };
 
+		this.depthRef = React.createRef();
 		this.openDepth = this.openDepth.bind(this);
 
 		if(props.nature == 'project') {
@@ -25,6 +26,7 @@ class Card extends Component {
 
 	openDepth(event) {
 		event.preventDefault();
+		// event.stopPropagation();
 
 		// cards[this.props.title];
 		// store.dispatch(changePage(this));
@@ -32,18 +34,16 @@ class Card extends Component {
 		HistoryTime.state.updating = true; ///
 		HistoryTime.navigateTo(this.portfolioPath);
 		// this.setState({ active: true });
+		this.depthRef.current.focus();
 	}
-
-
 
 	render() {
 		var content = "";
 
 		if(this.props.nature == 'project') {
 			var depthLink = "";
-			var depth = "";
 			depthLink = (
-				<a href={this.portfolioPath}>
+				<a href={this.portfolioPath} onClick={this.openDepth}>
 					<img src=
 						{"/images/projects/"
 						+ this.props.title.toLowerCase().replace(/\s/g, '') + "/"
@@ -74,8 +74,9 @@ class Card extends Component {
 				</header>
 			);
 
-			depth = (
-				<div className="depth">
+			// var depth = (
+			var depth = (
+				<div className="depth" tabIndex="0" ref={this.depthRef}>
 					{React.Children.map(this.props.children, (child, i) => {
 						if(!i) {
 							return (
@@ -96,13 +97,13 @@ class Card extends Component {
 				</div>
 			);
 
-			content = [depthLink, depth];
-			// content = (
-			// 	<div>
-			// 		{depthLink}
-			// 		{depth}
-			// 	</div>
-			// )
+			// content = [depthLink, depth];
+			content = (
+				<>
+					{depthLink}
+					{depth}
+				</>
+			)
 		} else {
 			content = this.props.children;
 		}
@@ -110,7 +111,6 @@ class Card extends Component {
 		return(
 			<div
 				className={"card " + this.props.nature + (this.state.active ? " active" : "")}
-				onClick={this.openDepth}
 			>
 				{content}
 			</div>

@@ -12,7 +12,7 @@ return(
 			<img src="/images/projects/foundsoundnation/logo.png" />
 
 			<p>
-				I was contracted to build numerous websites showcasing their organization and its many projects, festivals, and residencies. For their central website (as displayed in the images), we tried to design something that feels large and alive.
+				I was contracted to build numerous websites showcasing their organization and its many projects, festivals, and residencies. For their central website (seen in images), we tried to design something that feels large and alive.
 			</p>
 
 			<img src="/images/projects/foundsoundnation/grid.png" />

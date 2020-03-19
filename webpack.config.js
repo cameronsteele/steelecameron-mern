@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = [
 {
@@ -10,6 +11,7 @@ module.exports = [
 		filename: 'clientBuild.js', /// change
 		// publicPath /// ?
 	},
+	plugins: [new MiniCssExtractPlugin()],
 	module: {
 		rules: [
 			{
@@ -27,6 +29,21 @@ module.exports = [
 				test: /\.html$/,
 				use: [
 					'htmllint-loader'
+				]
+			},
+			{
+				test: /\.s[ac]ss$/i,
+				use: [
+					MiniCssExtractPlugin.loader,
+					// {
+					// 	loader: 'style-loader'
+					// },
+					{
+						loader: 'css-loader'
+					},
+					{
+						loader: 'sass-loader'
+					}
 				]
 			}
 		]
@@ -58,7 +75,15 @@ module.exports = [
 				use: [
 					'htmllint-loader'
 				]
-			}
+			},
+			// { ///TODO does this need to be on the server? if so, probably consolidate duplicate code
+			// 	test: /\.s[ac]ss$/i,
+			// 	use: [
+			// 		'style-loader',
+			// 		'css-loader',
+			// 		'sass-loader'
+			// 	]
+			// }
 		]
 	}
 }];

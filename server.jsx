@@ -50,7 +50,7 @@ function renderFullPage(html, preloadedState) {
 			<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/fontawesome.js" integrity="sha384-2IUdwouOFWauLdwTuAyHeMMRFfeyy4vqYNjodih+28v2ReC+8j+sLF9cK339k5hY" crossorigin="anonymous"></script>
 
 			<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,300" rel="stylesheet" type="text/css">
-			<link rel="stylesheet" type="text/css" href="/primary.css" />
+			<link rel="stylesheet" type="text/css" href="/main.css" />
 			<link rel="shortcut icon" href="/favicon.ico" />
 			<title>Cameron Steele - Web and Software Developer</title>
 		</head>

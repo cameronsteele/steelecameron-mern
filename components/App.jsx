@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card.jsx';
+// import '../primary.scss';
 
 import {
 	Telephenesis,
@@ -26,13 +27,25 @@ const App = () => (
 			{/*<!-- <a href="https://github.com/cameronsteele"><i className="fab fa-github"></i></a> -->*/}
 		</Card>
 
-		<Telephenesis />
-		<FoundSoundNation />
 		<KINDSnacks />
 		<CloudCred />
+		<Telephenesis />
+		<FoundSoundNation />
 		<EchoSign />
-		{/*<ApplyGem />*/}
 		<ColonieNYC />
+		{/*<BismuthBear />*/}
+		{/*<GoldenCeph />*/}
+		{/*<ApplyGem />*/}
+
+		<Card nature="text">
+			<h4>Smaller Projects</h4>
+			<ul>
+				<li>Niles Yoga</li>
+				<li>Songwriter's Studio</li>
+				<li>Conservation Centers for Species Survival</li>
+				<li></li>
+			</ul>
+		</Card>
 	</div>
 );
 

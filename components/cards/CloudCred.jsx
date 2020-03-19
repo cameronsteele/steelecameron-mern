@@ -9,17 +9,28 @@ export default function() {
 		projectLink="https://www.cloudcredibility.com"
 	>
 		<section>
-			<p>
-				<strong>CloudCred</strong>, by VMWare, is an online professional network and a learning game. Players form into teams and contribute to their team's collective score by completing learning challenges in order to earn prizes.
-			</p>
+			<p><strong>CloudCred</strong>, by VMWare, is an online professional network and a learning game. Players form into teams and contribute to their team's collective score by completing learning challenges related to cloud technology in order to earn prizes.</p>
 
-			<img src="/images/projects/vmwarecloudcred/main.png" />
-
-			<p>
-				I worked in a team of 5 as a front-end engineer to build the homepage and a number of live modules within the application like user profiles, search, and high-score listings. We used <code>HTML5</code> and <code>Javascript</code>/<code>AJAX</code>.
-			</p>
+			<p>We were a team of 5 engineers and designers. It took us about 2 months to complete.</p>
 
 			<img src="/images/projects/vmwarecloudcred/info.png" />
+		</section>
+
+		<section>
+			<img src="/images/projects/vmwarecloudcred/main.png" />
+
+			<p>My work involved slicing Photoshop files and programming UI to visualize and filter data. I built out the homepage, user profiles, search with autocompletion, and high-score listings.</p>
+
+			<p>Presumably VMWare found some value in it, as they have kept it running and continued to refresh prizes 7 years later.</p>
+
+			<div className="technical">
+				<h4>Technical</h4>
+				<p>I served as a general front-end developer using <code>HTML5</code> and <code>Javascript</code>. <code>AJAX</code> played a large role in various data tables and search fields.</p>
+
+				<p>We used <code>SASS</code> and <code>Compass</code> for <code>CSS</code> development.</p>
+
+				<p>We also used <code>jQuery</code> and <code>Bootstrap</code>.</p>
+			</div>
 		</section>
 	</Card>
 );
