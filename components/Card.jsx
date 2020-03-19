@@ -17,16 +17,18 @@ class Card extends Component {
 		this.openDepth = this.openDepth.bind(this);
 
 		if(props.nature == 'project') {
-			this.portfolioPath = '/' + props.title.toLowerCase().replace(/\s/g, "");
+			this.pathName = props.title.toLowerCase().replace(/\s/g, "");
+			this.portfolioPath = '/' + this.pathName;
 
 			if(CLIENT) { ///
-				HistoryTime.bindPathToProp(this.portfolioPath, this, 'active', true);
+				HistoryTime.bindPathToCallback(this.portfolioPath, openDepth);
+				// HistoryTime.bindPropToPath(this.portfolioPath, this, 'active', true, false);
 			}
 		}
 	}
 
 	static getDerivedStateFromProps(newProps, previousState) {
-		if(newProps.active == previousState.active) { ///OPTIMIZATION does this help or hurt?
+		if(newProps.active == null || newProps.active == previousState.active) { ///OPTIMIZATION does this help or hurt?
 			return null;
 		}
 
@@ -36,15 +38,12 @@ class Card extends Component {
 	}
 
 	openDepth(event) {
-		event.preventDefault();
-		// event.stopPropagation();
+		if(event) {
+			event.preventDefault();
+			// event.stopPropagation();
+		}
 
-		// cards[this.props.title];
-		// store.dispatch(changePage(this));
-
-		HistoryTime.state.updating = true; ///
-		HistoryTime.navigateTo(this.portfolioPath);
-		// this.setState({ active: true });
+		this.props.dispatch(changePage(this.pathName)); ///TODO probably move into HistoryTime
 		this.depthRef.current.focus();
 	}
 
@@ -135,6 +134,7 @@ function mapStateToProps(state, ownProps) {
 
 
   if(ownProps.nature == 'project') {
+    // active = state.page == ownProps.title.replace(/\s/g, '').toLowerCase();
     active = state.page == ownProps.title.replace(/\s/g, '').toLowerCase();
   }
 

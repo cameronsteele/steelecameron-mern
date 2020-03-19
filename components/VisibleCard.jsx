@@ -7,7 +7,6 @@ import Card from './Card.jsx';
 function mapStateToProps(state, ownProps) {
   var active = true;
 
-
   if(ownProps.nature == 'project') {
     active = state.page == ownProps.title.replace(/\s/g, '').toLowerCase();
   }

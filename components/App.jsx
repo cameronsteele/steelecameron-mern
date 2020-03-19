@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './VisibleCard.jsx';
+import HistoryTime from './history-time';
 // import Card from './Card.jsx';
 // import '../primary.scss';
 

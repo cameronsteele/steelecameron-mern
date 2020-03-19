@@ -4,7 +4,7 @@ class HistoryTime {
 
 		this.pathBinds = {};
 
-		this.bindPathToProp = this.bindPathToProp.bind(this);
+		this.bindPropToPath = this.bindPropToPath.bind(this);
 		this.popState = this.popState.bind(this);
 
 		window.addEventListener('popstate', this.popState, false);
@@ -42,7 +42,7 @@ class HistoryTime {
 
 		// 	default:
 				this.state.updating = false;
-				this.navigateTo('/' + pageTitle);
+				this.navigateTo(pageTitle);
 		// 		break;
 		// }
 	}
@@ -50,11 +50,13 @@ class HistoryTime {
 	navigateTo(path) {
 		console.log('navigating to ' + path); ///TODO remove or create debug toggle
 
+		if(path[0] != '/') path = '/' + path; ///REVISIT is this what we want to do?
+
 		while(this.activePathBinds.length) { ///REVISIT do we always want to clear the whole array on every navigateTo() call?
 			var activePathBind = this.activePathBinds.pop();
 
 			activePathBind.component.setState({
-				[activePathBind.property]: activePathBind.previousValue
+				[activePathBind.property]: activePathBind.offValue
 			});
 		}
 
@@ -76,17 +78,36 @@ class HistoryTime {
 
 	activatePathBind(pathBind) {
 		if(!pathBind.oneWay) {
-			this.activePathBinds.push({
-				component: pathBind.component,
-				property: pathBind.property,
-				previousValue: pathBind.component.props[pathBind.property]
-			});
+			this.activePathBinds.push(pathBind);
+			// this.activePathBinds.push({
+			// 	component: pathBind.component,
+			// 	property: pathBind.property,
+			// 	previousValue: pathBind.component.props[pathBind.property]
+			// });
 		}
 
-		pathBind.component.setState({ [pathBind.property]: pathBind.value });
+		pathBind.component.setState({ [pathBind.property]: pathBind.onValue });
 	}
 
-	bindPathToProp(path, component, property, value, oneWay = false) {
+	bindPathToCallback(path, onCallback, offCallback = false) {
+		if(!this.pathBinds.hasOwnProperty(path)) {
+			this.pathBinds[path] = [];
+		}
+
+		var pathBind = {
+			nature: 'callback',
+			onCallback,
+			offCallback
+		};
+
+		if(this.state.url == path) {
+			this.activatePathBind(pathBind);
+		}
+
+		this.pathBinds[path].push(pathBind);		
+	}
+
+	bindPropToPath(path, component, property, onValue, offValue = false, oneWay = false) {
 		// path = this.boilPath(path);
 
 		if(!this.pathBinds.hasOwnProperty(path)) {
@@ -94,9 +115,11 @@ class HistoryTime {
 		}
 
 		var pathBind = {
+			nature: 'prop',
 			component,
 			property,
-			value,
+			onValue,
+			offValue,
 			oneWay
 		};
 
