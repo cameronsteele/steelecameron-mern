@@ -20,9 +20,6 @@ class HistoryTime {
 	// 	});
 	// }
 
-	// bindBackClass(className) {
-	// }
-
 	goBack(event) {
 		event.preventDefault();
 		history.back();
@@ -41,7 +38,7 @@ class HistoryTime {
 		// 		break;
 
 		// 	default:
-				this.state.updating = false;
+				// this.state.updating = false;
 				this.navigateTo(pageTitle);
 		// 		break;
 		// }
@@ -54,39 +51,64 @@ class HistoryTime {
 
 		while(this.activePathBinds.length) { ///REVISIT do we always want to clear the whole array on every navigateTo() call?
 			var activePathBind = this.activePathBinds.pop();
+			this.deactivatePathBind(activePathBind);
+		}
 
-			activePathBind.component.setState({
-				[activePathBind.property]: activePathBind.offValue
-			});
+		for (var constantBindIndex = 0; constantBindIndex < this.pathBinds['*'].length; constantBindIndex++) {
+			var constantPathBind = this.pathBinds['*'][constantBindIndex];
+			this.activatePathBind(constantPathBind, path);
 		}
 
 		if(this.pathBinds.hasOwnProperty(path)) {
 			for(var bindIndex = 0; bindIndex < this.pathBinds[path].length; bindIndex++) {
 				var pathBind = this.pathBinds[path][bindIndex];
-
-				this.activatePathBind(pathBind);
+				this.activatePathBind(pathBind, path);
 			}
 		}
 
-		if(this.state.updating) {
+		// if(this.state.updating) {
+			///TODO generalize this block so it isn't specific to steelecameron.com
 			document.title = path + ' : cameron steele portfolio';
 			this.state.title = path + ' : cameron steele portfolio';
 			this.state.url = path.toLowerCase();
 			history.pushState(this.state, this.state.title, this.state.url);
+		// }
+	}
+
+	activatePathBind(pathBind, path) {
+		if(!pathBind.oneWay) {
+			this.activePathBinds.push(pathBind);
+		}
+
+		switch(pathBind.nature) {
+			case 'callback': {
+				pathBind.onCallback(path);
+			} break;
+
+			case 'prop': {
+				pathBind.component.setState({ [pathBind.property]: pathBind.onValue });
+			} break;
+
+			default: {
+				///TODO error? maybe we don't really care.
+			}
 		}
 	}
 
-	activatePathBind(pathBind) {
-		if(!pathBind.oneWay) {
-			this.activePathBinds.push(pathBind);
-			// this.activePathBinds.push({
-			// 	component: pathBind.component,
-			// 	property: pathBind.property,
-			// 	previousValue: pathBind.component.props[pathBind.property]
-			// });
-		}
+	deactivatePathBind(pathBind) {
+		switch(pathBind.nature) {
+			case 'callback': {
+				if(pathBind.offCallback) {
+					pathBind.offCallback();
+				}
+			} break;
 
-		pathBind.component.setState({ [pathBind.property]: pathBind.onValue });
+			case 'prop': {
+				activePathBind.component.setState({
+					[activePathBind.property]: activePathBind.offValue
+				});
+			} break;
+		}
 	}
 
 	bindPathToCallback(path, onCallback, offCallback = false) {
@@ -104,7 +126,7 @@ class HistoryTime {
 			this.activatePathBind(pathBind);
 		}
 
-		this.pathBinds[path].push(pathBind);		
+		this.pathBinds[path].push(pathBind);
 	}
 
 	bindPropToPath(path, component, property, onValue, offValue = false, oneWay = false) {

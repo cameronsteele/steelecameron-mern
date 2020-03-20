@@ -21,7 +21,7 @@ class Card extends Component {
 			this.portfolioPath = '/' + this.pathName;
 
 			if(CLIENT) { ///
-				HistoryTime.bindPathToCallback(this.portfolioPath, openDepth);
+				HistoryTime.bindPathToCallback('*', changePage);
 				// HistoryTime.bindPropToPath(this.portfolioPath, this, 'active', true, false);
 			}
 		}
@@ -43,7 +43,8 @@ class Card extends Component {
 			// event.stopPropagation();
 		}
 
-		this.props.dispatch(changePage(this.pathName)); ///TODO probably move into HistoryTime
+		// this.props.dispatch(changePage(this.pathName)); ///TODO probably move into HistoryTime
+		HistoryTime.navigateTo(this.pathName);
 		this.depthRef.current.focus();
 	}
 

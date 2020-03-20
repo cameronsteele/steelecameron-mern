@@ -3,7 +3,7 @@ import Express from 'express';
 import React from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-// import ReduxThunk from 'redux-thunk';
+import ReduxThunk from 'redux-thunk';
 // import HistoryTimeRedux from 'historytime-redux-middleware';
 import { renderToString } from 'react-dom/server';
 
@@ -23,7 +23,7 @@ function handleRender(req, res) {
 	var page = req.path.split('/')[1];
 	const preloadedState = { page };
 
-	const store = createStore(appReducer, preloadedState, applyMiddleware(HistoryTimeRedux));
+	const store = createStore(appReducer, preloadedState, applyMiddleware(ReduxThunk));
 
 	const html = renderToString(
 		<Provider store={store}>
