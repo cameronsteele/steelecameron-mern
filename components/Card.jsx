@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { changePage } from '../actions';
+// import { changePage } from '../actions';
 import HistoryTime from '../history-time';
 import BackButton from './BackButton.jsx';
 import { connect } from 'react-redux';
 
-const CLIENT = typeof window !== 'undefined';
-const SERVER = !CLIENT;
+const CLIENT = typeof window !== 'undefined'; /// in use in this file?
+// const SERVER = !CLIENT;
 
 class Card extends Component {
 	constructor(props) {
-		super();
+		super(props);
 
 		this.state = { active: false };
 
@@ -21,7 +21,6 @@ class Card extends Component {
 			this.portfolioPath = '/' + this.pathName;
 
 			if(CLIENT) { ///
-				HistoryTime.bindPathToCallback('*', changePage);
 				// HistoryTime.bindPropToPath(this.portfolioPath, this, 'active', true, false);
 			}
 		}
@@ -156,7 +155,6 @@ const VisibleCard = connect(
   mapStateToProps,
   // mapDispatchToProps
 )(Card);
-
 
 // export default Card;
 export default VisibleCard;

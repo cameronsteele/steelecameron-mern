@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Card from './VisibleCard.jsx';
 import HistoryTime from '../history-time';
+import { changePage } from '../actions';
+import { connect } from 'react-redux';
+
 // import Card from './Card.jsx';
 // import '../primary.scss';
 
@@ -19,9 +22,26 @@ import {
 // HistoryTime.bindPathToCallback('/', function;
 // HistoryTime
 
+const CLIENT = typeof window !== 'undefined';
+// const SERVER = !CLIENT;
+
 class App extends Component {
 	constructor(props) {
-		super();
+		super(props);
+
+		this.hereGoes = this.hereGoes.bind(this);
+
+		if(CLIENT) {
+			HistoryTime.bindPathToCallback('*', this.hereGoes);
+		}
+	}
+
+	hereGoes(path) {
+		if(path[0] == '/') { ///REVISIT better solution?
+			path = path.substring(1);
+		}
+
+		this.props.dispatch(changePage(path));
 	}
 
 	render() {
@@ -61,4 +81,6 @@ class App extends Component {
 	}
 }
 
-export default App;
+const ConnectedApp = connect()(App);
+
+export default ConnectedApp;
