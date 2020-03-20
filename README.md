@@ -5,13 +5,15 @@ Starts the server.
 ### `npm run webpack`
 Compiles the server and the client.
 
-# Points of Interest / Attempts to Impress Prospective Employers
-- Server-side rendering of a simple React application
+# Points of Interest
+- Server-side rendering of a React application.
+- The `<Card />` React component `.map()`s its own children to do some selective rendering.
+- Analytics tracking of Javascript page changes (changing the page without reloading).
 
 ## `./history-time.js`
 * A tiny router written for the portfolio. *
-- `bindPropToPath()` binds a URL path to the property of a component; when the path is requested, the property is set to the specified value. By default, it assumes you want the property value to be set exclusively at the path, and will revert to its previous value when a different path is requested.
-- The <Card /> React component `.map()`s its own children to do some selective rendering.
+- `bindPathToCallback(path, onCallback, offCallback = false)` binds the `onCallback` function to a path, and optionally binds the `offCallback` function to navigataion away from `path`.
+- `bindPropToPath()` binds properties to paths such that they use `onValue` when the path is visited and `offValue` when it is left.
 
 ## Libraries / Technologies
 - Node.js

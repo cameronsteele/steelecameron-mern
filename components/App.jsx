@@ -10,7 +10,8 @@ import {
 	KINDSnacks,
 	CloudCred,
 	EchoSign,
-	// ApplyGem,
+	ApplyGem,
+	Steelecameron,
 	ColonieNYC
 } from './cards';
 
@@ -44,20 +45,21 @@ class App extends Component {
 				<CloudCred />
 				<Telephenesis />
 				<FoundSoundNation />
-				<EchoSign />
 				<ColonieNYC />
+				<EchoSign />
 				{/*<BismuthBear />*/}
 				{/*<GoldenCeph />*/}
 				{/*<ApplyGem />*/}
+				<Steelecameron />
 
-				<Card nature="text">
+				{/*<Card nature="text">
 					<h4>Smaller Projects</h4>
 					<ul>
-						<li>Niles Yoga</li>
 						<li>Songwriter's Studio</li>
 						<li>Conservation Centers for Species Survival</li>
+						<li><a href="http://fairview.yoga">Fairview Yoga</a></li>
 					</ul>
-				</Card>
+				</Card>*/}
 			</div>
 		);
 	}

@@ -13,13 +13,6 @@ class HistoryTime {
 		this.activePathBinds = [];
 	}
 
-	// bindBackElement(element) {
-	// 	element.addEventListener('click', function(event) {
-	// 		event.preventDefault();
-	// 		history.back();
-	// 	});
-	// }
-
 	goBack(event) {
 		event.preventDefault();
 		history.back();
@@ -29,23 +22,11 @@ class HistoryTime {
 		this.state = event.state;
 		var pageTitle = this.state.url.split('/').pop();
 		gtag('config', 'GA_TRACKING_ID', {'page_path': this.state.url});
-
-		// switch(pageTitle) {
-		// 	case "":
-		// 		// project.classList.remove('active');
-		// 		// project = false;
-		// 		// document.body.removeAttribute('class');
-		// 		break;
-
-		// 	default:
-				// this.state.updating = false;
-				this.navigateTo(pageTitle);
-		// 		break;
-		// }
+		this.navigateTo(pageTitle, false);
 	}
 
-	navigateTo(path) {
-		console.log('navigating to ' + path); ///TODO remove or create debug toggle
+	navigateTo(path, updateState = true) {
+		// console.log('navigating to ' + path); ///TODO remove or create debug toggle
 
 		if(path[0] != '/') path = '/' + path; ///REVISIT is this what we want to do?
 
@@ -66,13 +47,13 @@ class HistoryTime {
 			}
 		}
 
-		// if(this.state.updating) {
+		if(updateState) {
 			///TODO generalize this block so it isn't specific to steelecameron.com
 			document.title = path + ' : cameron steele portfolio';
 			this.state.title = path + ' : cameron steele portfolio';
 			this.state.url = path.toLowerCase();
 			history.pushState(this.state, this.state.title, this.state.url);
-		// }
+		}
 	}
 
 	activatePathBind(pathBind, path) {
@@ -161,19 +142,6 @@ class HistoryTime {
 		return path;
 	}
 }
-
-
-// if(typeof window == "undefined") { ////
-// 	global.window = {};
-// }
-
-// if(typeof location == "undefined") { ////
-// 	global.location = {};
-// }
-
-// if(typeof document == "undefined") { ////
-// 	global.document = {};
-// }
 
 ////
 var singleInstance = {};

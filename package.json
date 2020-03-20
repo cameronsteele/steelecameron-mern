@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon build/serverBuild.js",
-    "webpack": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Cameron Steele (https://steelecameron.com)",

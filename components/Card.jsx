@@ -54,11 +54,12 @@ class Card extends Component {
 			var depthLink = "";
 			depthLink = (
 				<a href={this.portfolioPath} onClick={this.openDepth}>
-					<img src=
-						{"/images/projects/"
-						+ this.props.title.toLowerCase().replace(/\s/g, '') + "/"
-						+ this.props.title.toLowerCase().replace(/\s/g, '') ///
-						+ "_preview.png" }
+					<img src={this.props.cardImage ? this.props.cardImage
+						: "/images/projects/"
+							+ this.props.title.toLowerCase().replace(/\s/g, '') + "/"
+							+ this.props.title.toLowerCase().replace(/\s/g, '') ///
+							+ "_preview.png"
+						}
 					/>
 					<h2>{this.props.title}</h2>
 					{/*<h3>an online game of musical collaboration</h3>*/}
@@ -131,7 +132,6 @@ class Card extends Component {
 function mapStateToProps(state, ownProps) {
   var active = true;
 
-
   if(ownProps.nature == 'project') {
     active = state.page == ownProps.title.replace(/\s/g, '').toLowerCase();
   }
@@ -142,5 +142,4 @@ function mapStateToProps(state, ownProps) {
 }
 
 const ConnectedCard = connect(mapStateToProps)(Card);
-
 export default ConnectedCard;
