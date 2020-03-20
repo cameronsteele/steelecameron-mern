@@ -1,9 +1,6 @@
-# Scripts
+# steelecameron.com
 ### `npm start`
 Starts the server.
-
-### `npm run webpack`
-Compiles the server and the client.
 
 # Points of Interest
 - Server-side rendering of a React application.
