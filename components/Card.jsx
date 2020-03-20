@@ -107,7 +107,6 @@ class Card extends Component {
 				</div>
 			);
 
-			// content = [depthLink, depth];
 			content = (
 				<>
 					{depthLink}
@@ -134,7 +133,6 @@ function mapStateToProps(state, ownProps) {
 
 
   if(ownProps.nature == 'project') {
-    // active = state.page == ownProps.title.replace(/\s/g, '').toLowerCase();
     active = state.page == ownProps.title.replace(/\s/g, '').toLowerCase();
   }
 
@@ -143,18 +141,6 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     // onTodoClick: id => {
-//     //   dispatch(toggleTodo(id))
-//     // }
-//   }
-// }
+const ConnectedCard = connect(mapStateToProps)(Card);
 
-const VisibleCard = connect(
-  mapStateToProps,
-  // mapDispatchToProps
-)(Card);
-
-// export default Card;
-export default VisibleCard;
+export default ConnectedCard;

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import Card from './VisibleCard.jsx';
+import Card from './Card.jsx';
 import HistoryTime from '../history-time';
 import { changePage } from '../actions';
 import { connect } from 'react-redux';
-
-// import Card from './Card.jsx';
-// import '../primary.scss';
 
 import {
 	Telephenesis,
@@ -17,11 +14,6 @@ import {
 	ColonieNYC
 } from './cards';
 
-// require('../primary.css');
-
-// HistoryTime.bindPathToCallback('/', function;
-// HistoryTime
-
 const CLIENT = typeof window !== 'undefined';
 // const SERVER = !CLIENT;
 
@@ -29,19 +21,9 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.hereGoes = this.hereGoes.bind(this);
-
 		if(CLIENT) {
-			HistoryTime.bindPathToCallback('*', this.hereGoes);
+			HistoryTime.bindPathToCallback('*', props.navigateTo);
 		}
-	}
-
-	hereGoes(path) {
-		if(path[0] == '/') { ///REVISIT better solution?
-			path = path.substring(1);
-		}
-
-		this.props.dispatch(changePage(path));
 	}
 
 	render() {
@@ -69,18 +51,24 @@ class App extends Component {
 				{/*<ApplyGem />*/}
 
 				<Card nature="text">
-					{/*<h4>Smaller Projects</h4>
+					<h4>Smaller Projects</h4>
 					<ul>
 						<li>Niles Yoga</li>
 						<li>Songwriter's Studio</li>
 						<li>Conservation Centers for Species Survival</li>
-					</ul>*/}
+					</ul>
 				</Card>
 			</div>
 		);
 	}
 }
 
-const ConnectedApp = connect()(App);
+const mapDispatchToProps = dispatch => {
+	return {
+		navigateTo: (path) => dispatch(changePage(path))
+	}
+}
+
+const ConnectedApp = connect(null, mapDispatchToProps)(App);
 
 export default ConnectedApp;
