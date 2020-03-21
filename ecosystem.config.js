@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name: 'steelecameron.com server',
+    name: 'steelecameron-server',
     script: 'build/serverBuild.js',
 
     // args: 'one two',
