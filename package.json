@@ -4,7 +4,7 @@
   "description": "steelecameron.com MERN stack",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon build/serverBuild.js",
+    "start": "nodemon build/server/serverBuild.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Cameron Steele (https://steelecameron.com)",

@@ -7,7 +7,7 @@ module.exports = [
 	mode: 'development',
 	entry: './client.jsx',
 	output: {
-		path: path.resolve(__dirname, 'public'),
+		path: path.resolve(__dirname, 'build/client'),
 		filename: 'clientBuild.js', /// change
 		// publicPath /// ?
 	},
@@ -55,7 +55,7 @@ module.exports = [
 	mode: 'development',
 	entry: './server.jsx',
 	output: {
-		path: path.resolve(__dirname, 'build'),
+		path: path.resolve(__dirname, 'build/server'),
 		filename: 'serverBuild.js', /// change
 		// publicPath /// ?
 	},

@@ -13,7 +13,7 @@ import App from './components/App.jsx';
 const app = Express();
 const port = 3000;
 
-app.use(Express.static('public'));
+app.use(Express.static('build/client'));
 
 app.use(handleRender);
 
