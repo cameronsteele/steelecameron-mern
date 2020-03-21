@@ -5,7 +5,7 @@
 - The `<Card />` React component `.map()`s its own children to do some selective rendering.
 - Analytics tracking of Javascript page changes (changing the page without reloading).
 
-### `./history-time.js`
+### `./src/history-time.js`
 *A tiny router written for the portfolio.*
 
 - `bindPathToCallback(path, onCallback, offCallback = false)` binds the `onCallback` function to a path, and optionally binds the `offCallback` function to navigataion away from `path`.

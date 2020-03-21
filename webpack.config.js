@@ -5,7 +5,7 @@ module.exports = [
 {
 	name: 'client',
 	mode: 'development',
-	entry: 'src/client.jsx',
+	entry: './src/client.jsx',
 	output: {
 		path: path.resolve(__dirname, 'build/client'),
 		filename: 'clientBuild.js', /// change
@@ -53,7 +53,7 @@ module.exports = [
 {
 	name: 'server',
 	mode: 'development',
-	entry: 'src/server.jsx',
+	entry: './src/server.jsx',
 	output: {
 		path: path.resolve(__dirname, 'build/server'),
 		filename: 'serverBuild.js', /// change
