@@ -4,9 +4,9 @@ module.exports = {
     script: 'build/serverBuild.js',
 
     // args: 'one two',
-    instances: 1,
+    // instances: 1,
     autorestart: true,
-    watch: false,
+    // watch: true,
     // max_memory_restart: '1G',
     env: {
       PORT: 3000

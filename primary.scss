@@ -138,6 +138,12 @@ header.filters {
 				font-size: 2em;
 			}
 		}
+
+		&.smallerProjects {
+			a {
+				font-size: 1em;
+			}
+		}
 	}
 
 	&.project {

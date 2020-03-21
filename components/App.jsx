@@ -28,6 +28,23 @@ class App extends Component {
 	}
 
 	render() {
+		const smallerProjects = (
+			<Card nature="text" className="smallerProjects">
+				<h4>Smaller Projects</h4>
+				<ul>
+					<li>
+						<a href="http://fairview.yoga">Fairview Yoga</a>
+						<div>simple WordPress website</div>
+					</li>
+
+					<li>
+						<a href="https://conservationcenters.org/">Conservation Centers for Species Survival</a>
+						<div>converted from Webflow to WordPress</div>
+					</li>
+				</ul>
+			</Card>
+		);
+
 		return(
 			<div>
 				<Card nature="text">
@@ -36,7 +53,7 @@ class App extends Component {
 					<h3>designer</h3>
 					<a className="email" href="mailto:cameronsteele@steelecameron.com">
 						cameronsteele@steelecameron.com
-					</a><br />
+					</a>
 					{/*<!-- <a className="phone" href="tel:+13479797266">347-979-7266</a> -->*/}
 					{/*<!-- <a href="https://github.com/cameronsteele"><i className="fab fa-github"></i></a> -->*/}
 				</Card>
@@ -52,14 +69,7 @@ class App extends Component {
 				{/*<ApplyGem />*/}
 				<Steelecameron />
 
-				{/*<Card nature="text">
-					<h4>Smaller Projects</h4>
-					<ul>
-						<li>Songwriter's Studio</li>
-						<li>Conservation Centers for Species Survival</li>
-						<li><a href="http://fairview.yoga">Fairview Yoga</a></li>
-					</ul>
-				</Card>*/}
+				{smallerProjects}
 			</div>
 		);
 	}

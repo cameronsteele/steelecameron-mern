@@ -4,25 +4,19 @@ import HistoryTime from '../history-time';
 import BackButton from './BackButton.jsx';
 import { connect } from 'react-redux';
 
-const CLIENT = typeof window !== 'undefined'; /// in use in this file?
-// const SERVER = !CLIENT;
-
 class Card extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = { active: false };
+		this.inheritedClasses = props.className ? props.className : false;
 
-		this.depthRef = React.createRef();
 		this.openDepth = this.openDepth.bind(this);
 
 		if(props.nature == 'project') {
+			this.depthRef = React.createRef();
 			this.pathName = props.title.toLowerCase().replace(/\s/g, "");
 			this.portfolioPath = '/' + this.pathName;
-
-			if(CLIENT) { ///
-				// HistoryTime.bindPropToPath(this.portfolioPath, this, 'active', true, false);
-			}
 		}
 	}
 
@@ -36,13 +30,20 @@ class Card extends Component {
 		}
 	}
 
+	componentDidMount() {
+		if(this.props.nature == 'project') {
+			if(this.state.active) {
+				this.depthRef.current.focus();
+			}
+		}
+	}
+
 	openDepth(event) {
 		if(event) {
 			event.preventDefault();
 			// event.stopPropagation();
 		}
 
-		// this.props.dispatch(changePage(this.pathName)); ///TODO probably move into HistoryTime
 		HistoryTime.navigateTo(this.pathName);
 		this.depthRef.current.focus();
 	}
@@ -120,7 +121,11 @@ class Card extends Component {
 
 		return(
 			<div
-				className={"card " + this.props.nature + (this.state.active ? " active" : "")}
+				className={"card "
+					+ this.props.nature
+					+ (this.state.active ? " active" : "")
+					+ (this.inheritedClasses ? " " + this.inheritedClasses : "") // add any inherited classes
+				}
 			>
 				{content}
 			</div>
