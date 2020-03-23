@@ -11,7 +11,7 @@
 - `bindPathToCallback(path, onCallback, offCallback = false)` binds the `onCallback` function to a path, and optionally binds the `offCallback` function to navigataion away from `path`.
 - `bindPropToPath()` binds properties to paths such that they use `onValue` when the path is visited and `offValue` when it is left.
 
-# Credits
+## Credits
 designed and written by Cameron Steele (https://steelecameron.com)
 
 ## Libraries / Technologies
