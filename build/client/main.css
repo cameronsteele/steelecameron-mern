@@ -20,6 +20,8 @@ p {
 
 a {
   text-decoration: none; }
+  a.external:hover::after {
+    content: " \2192"; }
 
 code {
   padding: 2px 4px;
@@ -66,7 +68,7 @@ header.filters {
   width: 30%;
   max-width: 450px;
   min-width: 400px;
-  padding: 1.7%;
+  padding: 2% 1.8%;
   color: #eee;
   text-align: left;
   border-radius: 6px; }
@@ -86,11 +88,6 @@ header.filters {
     .card.text h4 {
       font-size: 2.4em;
       color: #caa; }
-    .card.text ul {
-      font-size: 1.6em;
-      padding: 0; }
-      .card.text ul li {
-        list-style-type: none; }
     .card.text a {
       color: #796a7b;
       font-size: 1.4em;
@@ -100,8 +97,23 @@ header.filters {
         color: #f7f7f7; }
       .card.text a.phone {
         font-size: 2em; }
-    .card.text.smallerProjects a {
-      font-size: 1em; }
+    .card.text.otherProjects h4 {
+      color: #eee; }
+    .card.text.otherProjects ul {
+      font-size: 1.7em;
+      padding: 0; }
+      .card.text.otherProjects ul li {
+        list-style-type: none;
+        margin: 0 0 8px; }
+        .card.text.otherProjects ul li a {
+          font-size: 1em;
+          color: #efcaca; }
+          .card.text.otherProjects ul li a:hover {
+            color: #7acf7a; }
+          .card.text.otherProjects ul li a:hover::after {
+            content: " \2192"; }
+        .card.text.otherProjects ul li small {
+          display: block; }
   .card.project {
     transition: background 0.17s;
     cursor: pointer; }
@@ -165,12 +177,10 @@ header.filters {
             text-decoration: none;
             transition: 0.2s; }
             .card.project .depth section a.back:hover {
-              color: #ffd086; }
+              color: #979797; }
         .card.project .depth section header a {
           font-size: 1.65em;
           line-height: 1.5em; }
-          .card.project .depth section header a:hover::after {
-            content: " \2192"; }
         .card.project .depth section header h2 {
           font-size: 3.7em; }
         .card.project .depth section header h3 {

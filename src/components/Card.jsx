@@ -71,7 +71,7 @@ class Card extends Component {
 			if(this.props.githubLink) {
 				depthHeaderSub = (
 					<div className="sub">
-						<a href={this.props.githubLink} target="_blank"><i className="fab fa-github"></i> GitHub</a>
+						<a href={this.props.githubLink} className="external" target="_blank"><i className="fab fa-github"></i> GitHub</a>
 					</div>
 				);
 			}
@@ -80,7 +80,7 @@ class Card extends Component {
 				<header>
 					<BackButton />
 					<h2>{this.props.title}</h2>
-					<a href={this.props.projectLink} target="_blank">{this.props.projectLink}</a>
+					<a href={this.props.projectLink} className="external" target="_blank">{this.props.projectLink}</a>
 
 					{depthHeaderSub}
 				</header>

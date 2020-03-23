@@ -26,15 +26,26 @@ export default function() {
 		</section>
 
 		<section>
-			<img src="/images/projects/telephenesis/login.png" />
+			<p>
+				One of the unexpectedly complex challenges was getting the scrollbars to operate as expected. Each project page has its own scrollbar that remains in place when revisiting the page. This actually required a fair amount of work.
+			</p>
 
+			<img src="/images/projects/telephenesis/create.png" />
+			
 			<div className="technical">
 				<h4>Technical</h4>
 				<p>
-					The website is built on one of the latest crazes in web development, <code>React</code>, <code>Redux</code>, and <code>Node.js</code>.
+					The website is built on <code>React</code>, <code>Redux</code>, <code>Express.js</code>, and <code>Node.js</code>.
+				</p>
+
+				<p>
+					Of note is server-side rendering of a React app and a small router I wrote from scratch which handles navigation between pages on the site without reloading; including back and forward buttons and analytics tracking. I also wrote hooks that allow for integration of things like React.
+				</p>
+
+				<p>
+					Other tools/languages involved were <code>SASS</code>, <code>Webpack</code>, and <code>Vagrant</code>. Code was deployed onto a <code>Debian</code> <code>Linux</code> server.
 				</p>
 			</div>
-			<img src="/images/projects/telephenesis/create.png" />
 		</section>
 	</Card>
 );

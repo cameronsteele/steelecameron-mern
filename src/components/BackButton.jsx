@@ -7,7 +7,9 @@ class BackButton extends Component {
 	}
 
 	render() {
-		return(<a className="back" href="/" onClick={HistoryTime.goBack}>&larr; back</a>);
+		return(
+			<a className="back" href="/" onClick={HistoryTime.goBack}>&larr; back</a>
+		);
 	}
 }
 

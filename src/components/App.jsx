@@ -28,18 +28,18 @@ class App extends Component {
 	}
 
 	render() {
-		const smallerProjects = (
-			<Card nature="text" className="smallerProjects">
-				<h4>Smaller Projects</h4>
+		const otherProjects = (
+			<Card nature="text" className="otherProjects">
+				<h4>Other Projects</h4>
 				<ul>
 					<li>
-						<a href="http://fairview.yoga">Fairview Yoga</a>
-						<div>simple WordPress website</div>
+						<a href="http://fairview.yoga" target="_blank">Fairview Yoga</a>
+						<small>simple WordPress website</small>
 					</li>
 
 					<li>
-						<a href="https://conservationcenters.org/">Conservation Centers for Species Survival</a>
-						<div>converted from Webflow to WordPress</div>
+						<a href="https://conservationcenters.org/" target="_blank">Conservation Centers for Species Survival</a>
+						<small>converted from Webflow to WordPress</small>
 					</li>
 				</ul>
 			</Card>
@@ -69,7 +69,7 @@ class App extends Component {
 				{/*<ApplyGem />*/}
 				<Steelecameron />
 
-				{smallerProjects}
+				{otherProjects}
 			</div>
 		);
 	}
