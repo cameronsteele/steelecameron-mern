@@ -14,7 +14,7 @@
 ## Credits
 designed and written by Cameron Steele (https://steelecameron.com)
 
-## Libraries / Technologies
+### Libraries / Technologies
 - Node.js
 - Express.js
 - React
