@@ -4,6 +4,7 @@
 - Server-side rendering of a React application.
 - The `<Card />` React component `.map()`s its own children to do some selective rendering.
 - Analytics tracking of Javascript page changes (changing the page without reloading).
+- Nginx reverse proxy for serving SSL-encrypted website with automatically-updating certificate.
 
 ### `./src/history-time.js`
 *A tiny router written for the portfolio.*
@@ -15,10 +16,13 @@
 designed and written by Cameron Steele (https://steelecameron.com)
 
 ### Libraries / Technologies
-- Node.js
-- Express.js
-- React
-- Redux
+- Javascript
+	- Node.js
+	- Express.js
+	- React
+	- Redux
+- Linux
+	- Nginx
 - Webpack
 - PM2
 - SASS

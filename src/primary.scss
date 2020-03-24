@@ -1,4 +1,6 @@
 $white: #eee;
+$black: #291a2b;
+
 @mixin rarrHover {
 	&:hover::after {
 		content: " \2192";
@@ -12,7 +14,7 @@ html {
 
 body {
 	margin: 0;
-	background-color: #291a2b;
+	background-color: $black;
 	font-family: 'Roboto Slab', serif;
 	font-size: 62.5%;
 	font-weight: 300;
@@ -220,7 +222,7 @@ header.filters {
 			height: 0%;
 			padding: 0 0%;
 			background: $white;
-			color: #291a2b;
+			color: $black;
 			text-align: center;
 			overflow: hidden;
 			cursor: auto;
@@ -296,7 +298,27 @@ header.filters {
 
 				img {
 					margin: 25px 0;
-					border: 1px solid #291a2b;
+					border: 1px solid $black;
+				}
+
+				figure {
+					margin: 25px 0;
+
+					img {
+						margin: 0;
+					}
+
+					figcaption {
+						background-color: #dddfe6;
+						font-style: italic;
+						// margin-left: 50px;
+						// padding: 15px 20px;
+						padding: 15px 20px 15px 75px;
+						// margin-left: 70%;
+						font-size: 1.38em;
+						color: #555;
+						text-align: justify;
+					}
 				}
 
 				.technical {

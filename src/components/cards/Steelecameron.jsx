@@ -21,7 +21,11 @@ export default function() {
 				I avoided using libraries to accomplish certain complex tasks (outlined in the technical section ahead), partially to teach myself how they worked but mostly to impress prospective employers.
 			</p>
 
-			<img src="/images/projects/telephenesis/invite1.png" />
+			<figure>
+				<img src="/images/projects/steelecameron/feedback-loop.png" />
+				<figcaption>I added the portfolio itself as a project because I thought it would be weird and/or funny; also I wanted to make an image with a visual feedback loop. {/*I thought this would be an effective demonstration of how impossibly clever and meta I am.*/}</figcaption>
+			</figure>
+
 			{/*<!-- <img src="/images/projects/telephenesis/invite2.png" /> -->*/}
 		</section>
 
@@ -43,7 +47,7 @@ export default function() {
 				</p>
 
 				<p>
-					Other tools/languages involved were <code>SASS</code>, <code>Webpack</code>, and <code>Vagrant</code>. Code was deployed onto a <code>Debian</code> <code>Linux</code> server.
+					Other development tools involved were <code>SASS</code> and <code>Webpack</code>. Code was deployed onto a <code>Debian</code> <code>Linux</code> server. We used <code>Nginx</code> to create a reverse-proxy against the Node.js server.
 				</p>
 			</div>
 		</section>

@@ -196,6 +196,17 @@ header.filters {
         .card.project .depth section img {
           margin: 25px 0;
           border: 1px solid #291a2b; }
+        .card.project .depth section figure {
+          margin: 25px 0; }
+          .card.project .depth section figure img {
+            margin: 0; }
+          .card.project .depth section figure figcaption {
+            background-color: #dddfe6;
+            font-style: italic;
+            padding: 15px 20px 15px 75px;
+            font-size: 1.38em;
+            color: #555;
+            text-align: justify; }
         .card.project .depth section .technical {
           padding: 0.1em 1.25em;
           background: #d5dad7; }
