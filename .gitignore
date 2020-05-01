@@ -2,3 +2,4 @@
 # public/clientBuild.js
 node_modules/
 *.sublime-workspace
+*.png~

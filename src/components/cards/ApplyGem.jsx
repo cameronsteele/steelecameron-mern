@@ -26,7 +26,12 @@ export default function() {
 		</section>
 
 		<section>
-
+			<figure>
+				<img src="/images/projects/applygem/Balin or something.png" />
+				<figcaption>
+					Incidentally, I drew a bunch of portraits of various popular characters as examples of image uploads that an applicant might make.
+				</figcaption>
+			</figure>
 
 			<img src="/images/projects/applygem/applicants.png" />
 

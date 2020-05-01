@@ -23,7 +23,9 @@ export default function() {
 
 			<figure>
 				<img src="/images/projects/steelecameron/feedback-loop.png" />
-				<figcaption>I added the portfolio itself as a project because I thought it would be weird and/or funny; also I wanted to make an image with a visual feedback loop. {/*I thought this would be an effective demonstration of how impossibly clever and meta I am.*/}</figcaption>
+				<figcaption>
+					I added the portfolio itself as a project because I thought it would be weird and/or funny; also I wanted to make an image with a visual feedback loop. {/*I thought this would be an effective demonstration of how impossibly clever and meta I am.*/}
+				</figcaption>
 			</figure>
 
 			{/*<!-- <img src="/images/projects/telephenesis/invite2.png" /> -->*/}
