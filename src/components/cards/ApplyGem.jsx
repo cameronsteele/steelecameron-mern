@@ -27,9 +27,9 @@ export default function() {
 
 		<section>
 			<figure>
-				<img src="/images/projects/applygem/Balin or something.png" />
+				<img src="/images/projects/applygem/self-portrait.png" />
 				<figcaption>
-					Incidentally, I drew a bunch of portraits of various popular characters as examples of image uploads that an applicant might make.
+					Incidentally, I drew a bunch of portraits of various popular characters for use in the demo as image uploads. Above is a Bombur from The Hobbit.
 				</figcaption>
 			</figure>
 
@@ -39,7 +39,15 @@ export default function() {
 				<h4>Technical</h4>
 
 				<p>
-					I used <code>PHP</code>, <code>Javascript</code>, and <code>HTML</code>. ApplyGem runs on a cloud server using the <code>Google App Engine</code>. There is also a plugin for <code>WordPress</code> coming soon.
+					I independently programmed ApplyGem (excluding libraries) using <code>PHP</code>, <code>Javascript</code>, and <code>HTML</code>.
+				</p>
+
+				<p>
+					We wrote a <code>REST</code> <code>API</code> available for developers interested in building more complex forms or otherwise connecting other software.
+				</p>
+
+				<p>
+					We built implementations for <code>Google Cloud Engine</code>, <code>Digital Ocean</code>, and <code>AWS</code>, in case pricing or features urge us to change platforms. {/*There is also a plugin for <code>WordPress</code> coming soon.*/}
 				</p>
 			</div>
 		</section>

@@ -66,7 +66,7 @@ class App extends Component {
 				<EchoSign />
 				{/*<BismuthBear />*/}
 				{/*<GoldenCeph />*/}
-				{/*<ApplyGem />*/}
+				<ApplyGem />
 				<Steelecameron />
 
 				{otherProjects}

@@ -22,7 +22,7 @@ export default function() {
 			</p>
 
 			<p>
-				The design was created by some very talented people at the <a href="https://www.madwell.com/" class="external" target="_blank">Madwell NYC</a> design agency.
+				The design was created by some very talented people at the <a href="https://www.madwell.com/" className="external" target="_blank">Madwell NYC</a> design agency.
 			</p>
 
 			<img src="/images/projects/colonienyc/navigation.png" />
