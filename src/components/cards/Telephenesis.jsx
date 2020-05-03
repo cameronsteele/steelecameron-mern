@@ -21,7 +21,7 @@ export default function() {
 			</p>
 
 			<p>
-				Then, another artist listens to it, recreates or reinterprets it, and uploads their take as another star. A line is drawn back to the original, creating branching constellations of musical interpretations.
+				Then, another artist listens to it, reinterprets and recreates it, and uploads their take as another star. A line is drawn back to the original, creating branching constellations of musical interpretations.
 			</p>
 
 			<img src="/images/projects/telephenesis/invite1.png" />
