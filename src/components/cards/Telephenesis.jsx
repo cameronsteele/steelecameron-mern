@@ -11,7 +11,7 @@ export default function() {
 	>
 		<section>
 			<p>
-				An online game and outerspace interface of musical creation and recreation.
+				An online game and outerspace interface of musical creation and recreation. I co-created the concept (with <a href="https://nopiano.com" className="external" target="_blank">Chris Marianetti</a>) and programmed the website myself.
 			</p>
 
 			<img src="/images/projects/telephenesis/constellation.png" />
@@ -34,7 +34,7 @@ export default function() {
 			<div className="technical">
 				<h4>Technical</h4>
 				<p>
-					I programmed it using <code>HTML</code>, <code>Javascript</code>, and <code>Node.js</code> on the <code>Express</code> web application framework. The server is an <code>EC2</code> instance on <code>AWS</code> <small>(Amazon Web Services)</small>.
+					I was sole developer, and used <code>HTML</code>, <code>Javascript</code>, and <code>Node.js</code> on the <code>Express</code> web application framework. The server is an <code>DigitalOcean</code> <code>droplet</code>.
 				</p>
 			</div>
 			<img src="/images/projects/telephenesis/create.png" />

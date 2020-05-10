@@ -35,7 +35,6 @@ function handleRender(req, res) {
 	// preloadedState.page = 'foundsoundnation';
 
 	const finalState = store.getState();
-
 	res.send(renderFullPage(html, finalState));
 }
 
@@ -61,7 +60,7 @@ function renderFullPage(html, preloadedState) {
 			<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,300" rel="stylesheet" type="text/css">
 			<link rel="stylesheet" type="text/css" href="/main.css" />
 			<link rel="shortcut icon" href="/favicon.ico" />
-			<title>Cameron Steele - Web and Software Developer</title>
+			<title>Cameron Steele - Portfolio</title>
 		</head>
 		<body>
 			<main id="root">${html}</main>

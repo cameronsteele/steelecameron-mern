@@ -1,6 +1,11 @@
 class HistoryTime {
 	constructor() {
-		this.state = { title: document.title, url: location.href, updating: false }
+		this.state = {
+			title: document.title,
+			path: '/',
+			url: location.href,
+			updating: false
+		};
 
 		this.pathBinds = {};
 
@@ -20,12 +25,12 @@ class HistoryTime {
 
 	popState(event) {
 		this.state = event.state;
-		var pageTitle = this.state.url.split('/').pop();
+		// var pageTitle = this.state.url.split('/').pop();
 		gtag('config', 'GA_TRACKING_ID', {'page_path': this.state.url});
-		this.navigateTo(pageTitle, false);
+		this.navigateTo(this.state.path, this.state.title, false);
 	}
 
-	navigateTo(path, updateState = true) {
+	navigateTo(path, pageTitle, updateState = true) {
 		// console.log('navigating to ' + path); ///TODO remove or create debug toggle
 
 		if(path[0] != '/') path = '/' + path; ///REVISIT is this what we want to do?
@@ -47,11 +52,14 @@ class HistoryTime {
 			}
 		}
 
+		document.title = pageTitle; //`
+
 		if(updateState) {
 			///TODO generalize this block so it isn't specific to steelecameron.com
-			document.title = path + ' : cameron steele portfolio';
-			this.state.title = path + ' : cameron steele portfolio';
-			this.state.url = path.toLowerCase();
+			var project = path.substring(1); //`revisit
+			this.state.title = pageTitle; //`
+			this.state.url = project.toLowerCase();
+			this.state.path = path;
 			history.pushState(this.state, this.state.title, this.state.url);
 		}
 	}

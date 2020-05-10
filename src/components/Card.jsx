@@ -10,6 +10,7 @@ class Card extends Component {
 
 		this.state = { active: false };
 		this.inheritedClasses = props.className ? props.className : false;
+		this.pageTitle = props.title + ' - ' + "Cameron Steele - Portfolio"
 
 		this.openDepth = this.openDepth.bind(this);
 
@@ -34,6 +35,7 @@ class Card extends Component {
 		if(this.props.nature == 'project') {
 			if(this.state.active) {
 				this.depthRef.current.focus();
+				document.title = this.pageTitle; //` history-time was taking care of this but not working on page load. revisit.
 			}
 		}
 	}
@@ -44,7 +46,7 @@ class Card extends Component {
 			// event.stopPropagation();
 		}
 
-		HistoryTime.navigateTo(this.pathName);
+		HistoryTime.navigateTo(this.pathName, this.pageTitle);
 		this.depthRef.current.focus();
 	}
 

@@ -12,32 +12,21 @@ export default function() {
 	>
 		<section>
 			<p>
-				The portfolio you're looking at. I tried to create something simple but subtly compelling and impressive from a code-base standpoint.
+				I tried to create something simple but compelling.
 			</p>
 
-			<img src="/images/projects/telephenesis/constellation.png" />
-
-			<p>
-				I avoided using libraries to accomplish certain complex tasks (outlined in the technical section ahead), partially to teach myself how they worked but mostly to impress prospective employers.
-			</p>
 
 			<figure>
 				<img src="/images/projects/steelecameron/feedback-loop.png" />
 				<figcaption>
-					I added the portfolio itself as a project because I thought it would be weird and/or funny; also I wanted to make an image with a visual feedback loop. {/*I thought this would be an effective demonstration of how impossibly clever and meta I am.*/}
+					I mostly just wanted to create a visual feedback loop.
 				</figcaption>
 			</figure>
 
-			{/*<!-- <img src="/images/projects/telephenesis/invite2.png" /> -->*/}
-		</section>
-
-		<section>
 			<p>
-				One of the unexpectedly complex challenges was getting the scrollbars to operate as expected. Each project page has its own scrollbar that remains in place when revisiting the page. This actually required a fair amount of work.
+				Initially, I had some trouble communicating with myself about the project needs and budget, but ultimately we came to terms. It was a pleasure working with myself and I'll probably be doing a lot more with myself in the future.
 			</p>
 
-			<img src="/images/projects/telephenesis/create.png" />
-			
 			<div className="technical">
 				<h4>Technical</h4>
 				<p>

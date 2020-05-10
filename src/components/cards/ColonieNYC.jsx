@@ -18,12 +18,16 @@ export default function() {
 			<img src="/images/projects/colonienyc/brunch.png" />
 
 			<p>
-				I programmed the website, including a miniature custom content-management system built for menu items and other content, using <code>HTML</code>, <code>Javascript</code>, and <code>PHP</code>.
+				I was sole-developer, coding each page according to design specifications and building a miniature custom content-management system built for menu items, news, and other content.
 			</p>
 
 			<p>
-				The design was created by some very talented people at the <a href="https://www.madwell.com/" className="external" target="_blank">Madwell NYC</a> design agency.
+				The design was created by <a href="https://www.madwell.com/" className="external" target="_blank">Madwell NYC</a>.
 			</p>
+
+			<div className="technical">
+				<p>It's quite a simple site on a technical level. I used <code>HTML</code>, <code>Javascript</code>, and <code>jQuery</code> for the front-end. The back-end is built on <code>PHP</code> and <code>MySQL</code>.</p>
+			</div>
 
 			<img src="/images/projects/colonienyc/navigation.png" />
 		</section>

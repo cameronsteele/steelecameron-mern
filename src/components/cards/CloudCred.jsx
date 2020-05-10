@@ -11,7 +11,7 @@ export default function() {
 		<section>
 			<p><strong>CloudCred</strong>, by VMWare, is an online professional network and a learning game. Players form into teams and contribute to their team's collective score by completing learning challenges related to cloud technology in order to earn prizes.</p>
 
-			<p>We were a team of 5 engineers and designers. It took us about 2 months to complete.</p>
+			<p>We were a team of 5 engineers and designers. It took us about 2 months to complete. My work involved slicing Photoshop files and various interface components.</p>
 
 			<img src="/images/projects/vmwarecloudcred/info.png" />
 		</section>
@@ -19,9 +19,9 @@ export default function() {
 		<section>
 			<img src="/images/projects/vmwarecloudcred/main.png" />
 
-			<p>My work involved slicing Photoshop files and programming UI to visualize and filter data. I built out the homepage, user profiles, search with autocompletion, and high-score listings.</p>
+			<p>I built out the homepage and the front-end for user profiles, search auto-completion, and high-score listings.</p>
 
-			<p>Presumably VMWare found some value in it, as they have kept it running and continued to refresh prizes 7 years later.</p>
+			<p>VMWare have kept it running with new challenges and prizes 7 years later.</p>
 
 			<div className="technical">
 				<h4>Technical</h4>

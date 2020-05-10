@@ -16,7 +16,7 @@ export default function() {
 			<img src="/images/projects/adobeechosign/header.png" />
 
 			<p>
-				I worked as a front-end developer, converting design specifications into a functional website. As part of the project, I also helped convert their existing content into a content-management system that Adobe had built internally.
+				I worked as a front-end developer in a fairly large team. I converted design specs into web pages. We also helped convert a bunch of their existing pages into a content-management system internal to Adobe.
 			</p>
 
 			<img src="/images/projects/adobeechosign/subscribe.png" />

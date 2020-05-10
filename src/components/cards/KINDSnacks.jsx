@@ -12,15 +12,15 @@ export default function() {
 			<img src="/images/projects/kindsnacks/bluebar.png" />
 
 			<p>
-				<strong>KIND Snacks</strong> is a popular brand of vaguely-healthy snack bars. Back in 2010, right before they became mostly ubiquitous, I was hired to develop a set of sales pages for their (at the time) new line of bars.
+				<strong>KIND Snacks</strong> is a popular brand of snack bars. I was hired to develop a set of sales pages for their (at the time) new line of bars.
 			</p>
 
 			<p>
-				My work involved slicing Photoshop designs into a functional website. Designs included multiple colors and various catchphrases; for which the marketing team ran tests to determine which were most effective.
+				My work involved slicing Photoshop designs into a functional website with a high-resolution animated slideshow of the new flavors. I built out a variety of versions with different colors and catchphrases; for which the marketing team ran tests to determine which were most effective.
 			</p>
-		</section>
+		{/*</section>
 
-		<section>
+		<section>*/}
 			<p>
 				Designs were provided by the agency that hired me, <a href="https://www.madwell.com/" className="external" target="_blank">Madwell NYC</a>.
 			</p>

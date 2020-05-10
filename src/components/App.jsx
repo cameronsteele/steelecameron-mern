@@ -58,15 +58,15 @@ class App extends Component {
 					{/*<!-- <a href="https://github.com/cameronsteele"><i className="fab fa-github"></i></a> -->*/}
 				</Card>
 
-				<KINDSnacks />
+				<ApplyGem />
 				<CloudCred />
-				<Telephenesis />
 				<FoundSoundNation />
+				<Telephenesis />
+				<KINDSnacks />
 				<ColonieNYC />
-				<EchoSign />
 				{/*<BismuthBear />*/}
 				{/*<GoldenCeph />*/}
-				<ApplyGem />
+				<EchoSign />
 				<Steelecameron />
 
 				{otherProjects}

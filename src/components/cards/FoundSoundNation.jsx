@@ -25,11 +25,11 @@ return(
 			</header>
 
 			<p>
-				Found Sound Nation was tasked by the <strong>U.S. Dept. of State</strong> to design an art residency and performance festival for musicians from around the world called OneBeat. I built both the public-facing website that showcased the artists and an internal application system that allowed them to browse through the thousands of applicants.
+				Found Sound Nation was tasked by the <strong>U.S. Dept. of State</strong> to design an art residency and performance festival for musicians from around the world called OneBeat. I built both the public-facing website that showcased the artists as well as an application form and applicant review system that allowed them to browse through the thousands of applicants.
 			</p>
 
 			<img src="/images/projects/foundsoundnation/article.png" />
-			<p>The review system is still in use by Found Sound Nation / U.S. Dept. of State, and I'm told a number of other government programs have adopted it.</p>
+			<p>The review system is still in use by Found Sound Nation / U.S. Dept. of State, and other government programs have adopted it.</p>
 
 
 			<div className="technical">
