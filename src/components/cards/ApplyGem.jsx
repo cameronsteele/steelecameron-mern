@@ -29,7 +29,7 @@ export default function() {
 			<figure>
 				<img src="/images/projects/applygem/self-portrait.png" />
 				<figcaption>
-					Incidentally, I drew a bunch of portraits of various popular characters for use in the demo as image uploads. Above is Bombur from The Hobbit.
+					Incidentally, I drew a bunch of portraits of various popular characters for use in the demo as image uploads. Above is Bombur from <em>The Hobbit</em>.
 				</figcaption>
 			</figure>
 

@@ -207,6 +207,8 @@ header.filters {
             font-size: 1.38em;
             color: #555;
             text-align: justify; }
+            .card.project .depth section figure figcaption em {
+              font-style: normal; }
         .card.project .depth section .technical {
           padding: 0.1em 1.25em;
           background: #d5dad7; }
